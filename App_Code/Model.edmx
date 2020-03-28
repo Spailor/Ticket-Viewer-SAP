@@ -1,0 +1,954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AktiviteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="I_Destec_CagriIstegiEvrak" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CagriIstegiID" Type="int" Mode="In" />
+          <Parameter Name="EvrakAdi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="I_Destec_Istek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ExtTicNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="AltTicNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="IlgKisi" Type="nvarchar" Mode="In" />
+          <Parameter Name="IstekTar" Type="datetime" Mode="In" />
+          <Parameter Name="SirAdi" Type="nvarchar" Mode="In" />
+          <Parameter Name="Aciklama" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="OnemDerecesi" Type="int" Mode="In" />
+          <Parameter Name="Moduller" Type="nvarchar" Mode="In" />
+          <Parameter Name="SirketKodu" Type="nvarchar" Mode="In" />
+          <Parameter Name="KisiMail" Type="nvarchar" Mode="In" />
+          <Parameter Name="SirketId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="I_Mail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="GonderenDanismanID" Type="int" Mode="In" />
+          <Parameter Name="GonderilenMailAdresi" Type="nvarchar" Mode="In" />
+          <Parameter Name="HTML" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Durum" Type="bit" Mode="In" />
+          <Parameter Name="GonderimTarihi" Type="datetime" Mode="In" />
+          <Parameter Name="GonderenMailAdresi" Type="nvarchar" Mode="In" />
+          <Parameter Name="Konu" Type="nvarchar" Mode="In" />
+          <Parameter Name="PromotionName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EkteDosya" Type="bit" Mode="In" />
+          <Parameter Name="EkteDosyaYolu" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="S_Cagri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="DanismanID" Type="int" Mode="In" />
+          <Parameter Name="CagriDurumu" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_CagriChart1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="MINDATE" Type="datetime" Mode="In" />
+          <Parameter Name="MAXDATE" Type="datetime" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_CagriChart2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MINDATE" Type="datetime" Mode="In" />
+          <Parameter Name="MAXDATE" Type="datetime" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_AyarlarFirma" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_Cagri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriIstegiEvrak" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CagriIstekID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriIstek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriIstekIDVer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriKapatilanlar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriKapatilanlarim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="KullaniciId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriOnayBekleyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriOnayBekleyenIsteklerim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="KullaniciId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriOnayBekleyenlerim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="KullaniciId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriOnaylananIstekler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriOnaylananIsteklerim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="KullaniciId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriReddedilenIstekler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_CagriReddedilenIsteklerim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="KullaniciId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_GonderilecekMailAdresleri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="SirketID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="KayitID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_ModulInSirket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SirketId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_SirketIDVer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SirketAdi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="S_Destec_UsersInSirket_GetKullanicininSirketleri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="S_DestecChartCagriDurum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MINDATE" Type="datetime" Mode="In" />
+          <Parameter Name="MAXDATE" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="S_Modul" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_Tip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ayirac" Type="int" Mode="In" />
+        </Function>
+        <Function Name="U_Destec_CagriIstegiKaynakYoneticisiOnayi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CagriIstegiID" Type="int" Mode="In" />
+          <Parameter Name="IslemTipi" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="U_Destec_CagriTestiniOnayla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CagriId" Type="int" Mode="In" />
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="Aciklama" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AktiviteModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AktiviteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AktiviteEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="S_Cagri" ReturnType="Collection(AktiviteModel.S_Cagri_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="DanismanID" Mode="In" Type="Int32" />
+            <Parameter Name="CagriDurumu" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_CagriChart1" ReturnType="Collection(AktiviteModel.S_CagriChart1_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="MINDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MAXDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_CagriChart2" ReturnType="Collection(AktiviteModel.S_CagriChart2_Result)">
+            <Parameter Name="MINDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MAXDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="I_Destec_Istek" ReturnType="Collection(AktiviteModel.I_Destec_Istek_Result)">
+            <Parameter Name="ExtTicNo" Mode="In" Type="String" />
+            <Parameter Name="AltTicNo" Mode="In" Type="String" />
+            <Parameter Name="IlgKisi" Mode="In" Type="String" />
+            <Parameter Name="IstekTar" Mode="In" Type="DateTime" />
+            <Parameter Name="SirAdi" Mode="In" Type="String" />
+            <Parameter Name="Aciklama" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="OnemDerecesi" Mode="In" Type="Int32" />
+            <Parameter Name="Moduller" Mode="In" Type="String" />
+            <Parameter Name="SirketKodu" Mode="In" Type="String" />
+            <Parameter Name="KisiMail" Mode="In" Type="String" />
+            <Parameter Name="SirketId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Modul" ReturnType="Collection(AktiviteModel.S_Modul_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Tip" ReturnType="Collection(AktiviteModel.S_Tip_Result)">
+          <Parameter Name="Ayirac" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_DestecChartCagriDurum" ReturnType="Collection(AktiviteModel.S_DestecChartCagriDurum_Result)">
+            <Parameter Name="MINDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="MAXDATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriIstek" ReturnType="Collection(AktiviteModel.S_Destec_CagriIstek_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="U_Destec_CagriIstegiKaynakYoneticisiOnayi">
+            <Parameter Name="CagriIstegiID" Mode="In" Type="Int32" />
+            <Parameter Name="IslemTipi" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="I_Destec_CagriIstegiEvrak">
+            <Parameter Name="CagriIstegiID" Mode="In" Type="Int32" />
+            <Parameter Name="EvrakAdi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriIstegiEvrak" ReturnType="Collection(AktiviteModel.S_Destec_CagriIstegiEvrak_Result)">
+          <Parameter Name="CagriIstekID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriOnayBekleyen" ReturnType="Collection(AktiviteModel.S_Destec_CagriOnayBekleyen_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="U_Destec_CagriTestiniOnayla">
+            <Parameter Name="CagriId" Mode="In" Type="Int32" />
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="Aciklama" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriKapatilanlar" ReturnType="Collection(AktiviteModel.S_Destec_CagriKapatilanlar_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriOnaylananIstekler" ReturnType="Collection(AktiviteModel.S_Destec_CagriOnaylananIstekler_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriReddedilenIstekler" ReturnType="Collection(AktiviteModel.S_Destec_CagriReddedilenIstekler_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriOnaylananIsteklerim" ReturnType="Collection(AktiviteModel.S_Destec_CagriOnaylananIsteklerim_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="KullaniciId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriReddedilenIsteklerim" ReturnType="Collection(AktiviteModel.S_Destec_CagriReddedilenIsteklerim_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="KullaniciId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriKapatilanlarim" ReturnType="Collection(AktiviteModel.S_Destec_CagriKapatilanlarim_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="KullaniciId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriOnayBekleyenlerim" ReturnType="Collection(AktiviteModel.S_Destec_CagriOnayBekleyenlerim_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="KullaniciId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriOnayBekleyenIsteklerim" ReturnType="Collection(AktiviteModel.S_Destec_CagriOnayBekleyenIsteklerim_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="KullaniciId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_UsersInSirket_GetKullanicininSirketleri" ReturnType="Collection(AktiviteModel.S_Destec_UsersInSirket_GetKullanicininSirketleri_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_ModulInSirket" ReturnType="Collection(AktiviteModel.S_Destec_ModulInSirket_Result)">
+          <Parameter Name="SirketId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="I_Mail" ReturnType="Collection(Int32)">
+            <Parameter Name="GonderenDanismanID" Mode="In" Type="Int32" />
+            <Parameter Name="GonderilenMailAdresi" Mode="In" Type="String" />
+            <Parameter Name="HTML" Mode="In" Type="String" />
+            <Parameter Name="Durum" Mode="In" Type="Boolean" />
+            <Parameter Name="GonderimTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="GonderenMailAdresi" Mode="In" Type="String" />
+            <Parameter Name="Konu" Mode="In" Type="String" />
+            <Parameter Name="PromotionName" Mode="In" Type="String" />
+            <Parameter Name="EkteDosya" Mode="In" Type="Boolean" />
+            <Parameter Name="EkteDosyaYolu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_GonderilecekMailAdresleri" ReturnType="Collection(AktiviteModel.S_Destec_GonderilecekMailAdresleri_Result)">
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Guid" />
+            <Parameter Name="SirketID" Mode="In" Type="Guid" />
+            <Parameter Name="KayitID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_SirketIDVer" ReturnType="Collection(AktiviteModel.S_Destec_SirketIDVer_Result)">
+          <Parameter Name="SirketAdi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_CagriIstekIDVer" ReturnType="Collection(AktiviteModel.S_Destec_CagriIstekIDVer_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_Cagri" ReturnType="Collection(AktiviteModel.S_Destec_Cagri_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Destec_AyarlarFirma" ReturnType="Collection(AktiviteModel.S_Destec_AyarlarFirma_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Guid" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="S_Cagri_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="CagriIstekID" Nullable="false" />
+          <Property Type="DateTime" Name="CagriIstekKayitTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="SistemKayitTarihiSaati" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="AtananDanismanID" Nullable="false" />
+          <Property Type="Int32" Name="YonlendirilenDanismanID" Nullable="false" />
+          <Property Type="DateTime" Name="YonlendirilenDanismanTarihSaati" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="KayitOlusturanKullaniciID" Nullable="true" />
+          <Property Type="Guid" Name="KayitDegistirenKullaniciID" Nullable="true" />
+          <Property Type="Int32" Name="CagriDurumu_TipID1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="S_CagriChart1_Result">
+          <Property Type="DateTime" Name="Argument" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Value" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_CagriChart2_Result">
+          <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Value" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_Modul_Result">
+          <Property Type="Int32" Name="ModulID" Nullable="false" />
+          <Property Type="String" Name="ModulAdi" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Sil" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_Tip_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Ayirac" Nullable="true" />
+          <Property Type="String" Name="Aciklama" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Notlar" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="S_DestecChartCagriDurum_Result">
+          <Property Type="String" Name="SeriesName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Value" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="I_Destec_Istek_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriIstek_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriIstegiEvrak_Result">
+          <Property Type="String" Name="EvrakAdi" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriOnayBekleyen_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="true" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriKapatilanlar_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="true" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriOnaylananIstekler_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="CagriDurumuID" Nullable="false" />
+          <Property Type="String" Name="CagriDurumu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DanismanAdiSoyadi" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriReddedilenIstekler_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriOnaylananIsteklerim_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="DanismanAdiSoyadi" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriReddedilenIsteklerim_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriKapatilanlarim_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="true" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriOnayBekleyenlerim_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="true" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriOnayBekleyenIsteklerim_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="SonucAciklama" Nullable="false" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_UsersInSirket_GetKullanicininSirketleri_Result">
+          <Property Type="String" Name="SirketAdi" Nullable="true" MaxLength="150" />
+          <Property Type="Guid" Name="SirketId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_ModulInSirket_Result">
+          <Property Type="Int32" Name="ModulID" Nullable="true" />
+          <Property Type="String" Name="ModulAdi" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_GonderilecekMailAdresleri_Result">
+          <Property Type="String" Name="MailAdresleri" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_SirketIDVer_Result">
+          <Property Type="Guid" Name="SirketId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_CagriIstekIDVer_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="OnemDerecesi" Nullable="false" />
+          <Property Type="String" Name="OnemDerecesiAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiMailAdresi" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Moduller" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DosyaEkleri" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_Cagri_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="CagriIstekID" Nullable="false" />
+          <Property Type="DateTime" Name="CagriIstekKayitTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ExternalTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AlternativeTicketNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSahibiAdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="IstekTarihiSaati" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IstekSirketAdi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekSirketKodu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IstekAciklama" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="SistemKayitTarihiSaati" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="AtananDanismanID" Nullable="false" />
+          <Property Type="Int32" Name="YonlendirilenDanismanID" Nullable="false" />
+          <Property Type="DateTime" Name="YonlendirilenDanismanTarihSaati" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="KayitOlusturanKullaniciID" Nullable="true" />
+          <Property Type="Guid" Name="KayitDegistirenKullaniciID" Nullable="true" />
+          <Property Type="Int32" Name="CagriDurumu_TipID1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="S_Destec_AyarlarFirma_Result">
+          <Property Type="Boolean" Name="KaynakYoneticisiSistemi" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AktiviteModelStoreContainer" CdmEntityContainer="AktiviteEntities" >
+          <FunctionImportMapping FunctionImportName="S_Cagri" FunctionName="AktiviteModel.Store.S_Cagri">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Cagri_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CagriIstekID" ColumnName="CagriIstekID" />
+                <ScalarProperty Name="CagriIstekKayitTarihiSaati" ColumnName="CagriIstekKayitTarihiSaati" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="SistemKayitTarihiSaati" ColumnName="SistemKayitTarihiSaati" />
+                <ScalarProperty Name="AtananDanismanID" ColumnName="AtananDanismanID" />
+                <ScalarProperty Name="YonlendirilenDanismanID" ColumnName="YonlendirilenDanismanID" />
+                <ScalarProperty Name="YonlendirilenDanismanTarihSaati" ColumnName="YonlendirilenDanismanTarihSaati" />
+                <ScalarProperty Name="KayitOlusturanKullaniciID" ColumnName="KayitOlusturanKullaniciID" />
+                <ScalarProperty Name="KayitDegistirenKullaniciID" ColumnName="KayitDegistirenKullaniciID" />
+                <ScalarProperty Name="CagriDurumu_TipID1" ColumnName="CagriDurumu_TipID1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_CagriChart1" FunctionName="AktiviteModel.Store.S_CagriChart1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_CagriChart1_Result">
+                <ScalarProperty Name="Argument" ColumnName="Argument" />
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_CagriChart2" FunctionName="AktiviteModel.Store.S_CagriChart2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_CagriChart2_Result">
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="I_Destec_Istek" FunctionName="AktiviteModel.Store.I_Destec_Istek" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.I_Destec_Istek_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Modul" FunctionName="AktiviteModel.Store.S_Modul">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Modul_Result">
+                <ScalarProperty Name="ModulID" ColumnName="ModulID" />
+                <ScalarProperty Name="ModulAdi" ColumnName="ModulAdi" />
+                <ScalarProperty Name="Sil" ColumnName="Sil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Tip" FunctionName="AktiviteModel.Store.S_Tip">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Tip_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ayirac" ColumnName="Ayirac" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_DestecChartCagriDurum" FunctionName="AktiviteModel.Store.S_DestecChartCagriDurum">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_DestecChartCagriDurum_Result">
+                <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriIstek" FunctionName="AktiviteModel.Store.S_Destec_CagriIstek">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriIstek_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="U_Destec_CagriIstegiKaynakYoneticisiOnayi" FunctionName="AktiviteModel.Store.U_Destec_CagriIstegiKaynakYoneticisiOnayi" />
+          <FunctionImportMapping FunctionImportName="I_Destec_CagriIstegiEvrak" FunctionName="AktiviteModel.Store.I_Destec_CagriIstegiEvrak" />
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriIstegiEvrak" FunctionName="AktiviteModel.Store.S_Destec_CagriIstegiEvrak" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriIstegiEvrak_Result">
+                <ScalarProperty Name="EvrakAdi" ColumnName="EvrakAdi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriOnayBekleyen" FunctionName="AktiviteModel.Store.S_Destec_CagriOnayBekleyen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriOnayBekleyen_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="U_Destec_CagriTestiniOnayla" FunctionName="AktiviteModel.Store.U_Destec_CagriTestiniOnayla" />
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriKapatilanlar" FunctionName="AktiviteModel.Store.S_Destec_CagriKapatilanlar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriKapatilanlar_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriOnaylananIstekler" FunctionName="AktiviteModel.Store.S_Destec_CagriOnaylananIstekler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriOnaylananIstekler_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="CagriDurumuID" ColumnName="CagriDurumuID" />
+                <ScalarProperty Name="CagriDurumu" ColumnName="CagriDurumu" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+                <ScalarProperty Name="DanismanAdiSoyadi" ColumnName="DanismanAdiSoyadi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriReddedilenIstekler" FunctionName="AktiviteModel.Store.S_Destec_CagriReddedilenIstekler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriReddedilenIstekler_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriOnaylananIsteklerim" FunctionName="AktiviteModel.Store.S_Destec_CagriOnaylananIsteklerim">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriOnaylananIsteklerim_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="DanismanAdiSoyadi" ColumnName="DanismanAdiSoyadi" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriReddedilenIsteklerim" FunctionName="AktiviteModel.Store.S_Destec_CagriReddedilenIsteklerim">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriReddedilenIsteklerim_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriKapatilanlarim" FunctionName="AktiviteModel.Store.S_Destec_CagriKapatilanlarim">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriKapatilanlarim_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriOnayBekleyenlerim" FunctionName="AktiviteModel.Store.S_Destec_CagriOnayBekleyenlerim">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriOnayBekleyenlerim_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriOnayBekleyenIsteklerim" FunctionName="AktiviteModel.Store.S_Destec_CagriOnayBekleyenIsteklerim">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriOnayBekleyenIsteklerim_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+                <ScalarProperty Name="SonucAciklama" ColumnName="SonucAciklama" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_UsersInSirket_GetKullanicininSirketleri" FunctionName="AktiviteModel.Store.S_Destec_UsersInSirket_GetKullanicininSirketleri" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_UsersInSirket_GetKullanicininSirketleri_Result">
+                <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+                <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_ModulInSirket" FunctionName="AktiviteModel.Store.S_Destec_ModulInSirket" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_ModulInSirket_Result">
+                <ScalarProperty Name="ModulID" ColumnName="ModulID" />
+                <ScalarProperty Name="ModulAdi" ColumnName="ModulAdi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="I_Mail" FunctionName="AktiviteModel.Store.I_Mail" />
+          <FunctionImportMapping FunctionImportName="S_Destec_GonderilecekMailAdresleri" FunctionName="AktiviteModel.Store.S_Destec_GonderilecekMailAdresleri" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_GonderilecekMailAdresleri_Result">
+                <ScalarProperty Name="MailAdresleri" ColumnName="MailAdresleri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_SirketIDVer" FunctionName="AktiviteModel.Store.S_Destec_SirketIDVer" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_SirketIDVer_Result">
+                <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_CagriIstekIDVer" FunctionName="AktiviteModel.Store.S_Destec_CagriIstekIDVer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_CagriIstekIDVer_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="OnemDerecesiAdi" ColumnName="OnemDerecesiAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekSahibiMailAdresi" ColumnName="IstekSahibiMailAdresi" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="Moduller" ColumnName="Moduller" />
+                <ScalarProperty Name="DosyaEkleri" ColumnName="DosyaEkleri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_Cagri" FunctionName="AktiviteModel.Store.S_Destec_Cagri">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_Cagri_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CagriIstekID" ColumnName="CagriIstekID" />
+                <ScalarProperty Name="CagriIstekKayitTarihiSaati" ColumnName="CagriIstekKayitTarihiSaati" />
+                <ScalarProperty Name="InternalTicketNumber" ColumnName="InternalTicketNumber" />
+                <ScalarProperty Name="ExternalTicketNumber" ColumnName="ExternalTicketNumber" />
+                <ScalarProperty Name="AlternativeTicketNumber" ColumnName="AlternativeTicketNumber" />
+                <ScalarProperty Name="IstekSahibiAdiSoyadi" ColumnName="IstekSahibiAdiSoyadi" />
+                <ScalarProperty Name="IstekTarihiSaati" ColumnName="IstekTarihiSaati" />
+                <ScalarProperty Name="IstekSirketAdi" ColumnName="IstekSirketAdi" />
+                <ScalarProperty Name="IstekSirketKodu" ColumnName="IstekSirketKodu" />
+                <ScalarProperty Name="IstekAciklama" ColumnName="IstekAciklama" />
+                <ScalarProperty Name="SistemKayitTarihiSaati" ColumnName="SistemKayitTarihiSaati" />
+                <ScalarProperty Name="AtananDanismanID" ColumnName="AtananDanismanID" />
+                <ScalarProperty Name="YonlendirilenDanismanID" ColumnName="YonlendirilenDanismanID" />
+                <ScalarProperty Name="YonlendirilenDanismanTarihSaati" ColumnName="YonlendirilenDanismanTarihSaati" />
+                <ScalarProperty Name="KayitOlusturanKullaniciID" ColumnName="KayitOlusturanKullaniciID" />
+                <ScalarProperty Name="KayitDegistirenKullaniciID" ColumnName="KayitDegistirenKullaniciID" />
+                <ScalarProperty Name="CagriDurumu_TipID1" ColumnName="CagriDurumu_TipID1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Destec_AyarlarFirma" FunctionName="AktiviteModel.Store.S_Destec_AyarlarFirma" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AktiviteModel.S_Destec_AyarlarFirma_Result">
+                <ScalarProperty Name="KaynakYoneticisiSistemi" ColumnName="KaynakYoneticisiSistemi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

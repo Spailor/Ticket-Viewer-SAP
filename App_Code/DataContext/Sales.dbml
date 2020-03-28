@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="SalesDataContext" EntityBase="DataAccess.BaseEntity" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Channels" Member="Channels">
+    <Type Name="Channel">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Association Name="Channel_Sale" Member="Sales" ThisKey="Id" OtherKey="ChannelId" Type="Sale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Contact_Product" Member="Products" ThisKey="Id" OtherKey="ProjectManagerId" Type="Product" />
+      <Association Name="Contact_Product1" Member="SupportedProducts" Storage="_Products1" ThisKey="Id" OtherKey="SupportManagerId" Type="Product" />
+      <Association Name="City_Contact" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="City">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" CanBeNull="false" />
+      <Column Name="Map" Type="System.String" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" CanBeNull="false" />
+      <Column Name="State" Type="System.String" CanBeNull="false" />
+      <Association Name="City_Contact" Member="Contacts" ThisKey="Id" OtherKey="CityId" Type="Contact" />
+      <Association Name="City_Customer" Member="Customers" ThisKey="Id" OtherKey="CityId" Type="Customer" />
+      <Association Name="City_Plant" Member="Plants" ThisKey="Id" OtherKey="CityId" Type="Plant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" CanBeNull="false" />
+      <Column Name="Zip" Type="System.String" CanBeNull="false" />
+      <Column Name="CityId" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Customer_Sale" Member="Sales" ThisKey="Id" OtherKey="CustomerId" Type="Sale" />
+      <Association Name="City_Customer" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Plants" Member="Plants">
+    <Type Name="Plant">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" CanBeNull="false" />
+      <Column Name="Zip" Type="System.String" CanBeNull="false" />
+      <Column Name="CityId" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Plant_Product" Member="Products" ThisKey="Id" OtherKey="PlantId" Type="Product" />
+      <Association Name="City_Plant" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" CanBeNull="false" />
+      <Column Name="BaseCost" Type="System.Double" CanBeNull="false" />
+      <Column Name="ListPrice" Type="System.Double" CanBeNull="false" />
+      <Column Name="UnitsInInventory" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PlantId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="ProjectManagerId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="SupportManagerId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="UnitsInManufacturing" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Product_Sale" Member="Sales" ThisKey="Id" OtherKey="ProductId" Type="Sale" />
+      <Association Name="Contact_Product" Member="ProjectManager" Storage="_Contact" ThisKey="ProjectManagerId" OtherKey="Id" Type="Contact" IsForeignKey="true" />
+      <Association Name="Contact_Product1" Member="SupportManager" Storage="_Contact1" ThisKey="SupportManagerId" OtherKey="Id" Type="Contact" IsForeignKey="true" />
+      <Association Name="Plant_Product" Member="Plant" ThisKey="PlantId" OtherKey="Id" Type="Plant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Regions" Member="Regions">
+    <Type Name="Region">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Association Name="Region_Sale" Member="Sales" ThisKey="Id" OtherKey="RegionId" Type="Sale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sectors" Member="Sectors">
+    <Type Name="Sector">
+      <Column Name="Id" AutoSync="OnInsert" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Association Name="Sector_Sale" Member="Sales" ThisKey="Id" OtherKey="SectorId" Type="Sale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sales" Member="Sales">
+    <Type Name="Sale">
+      <Column Name="Id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Units" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CostPerUnit" Type="System.Double" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Double" CanBeNull="false" />
+      <Column Name="TotalCost" Type="System.Double" CanBeNull="false" />
+      <Column Name="SaleDate" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="RegionId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="ChannelId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="SectorId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CustomerId" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Product_Sale" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
+      <Association Name="Region_Sale" Member="Region" ThisKey="RegionId" OtherKey="Id" Type="Region" IsForeignKey="true" />
+      <Association Name="Channel_Sale" Member="Channel" ThisKey="ChannelId" OtherKey="Id" Type="Channel" IsForeignKey="true" />
+      <Association Name="Sector_Sale" Member="Sector" ThisKey="SectorId" OtherKey="Id" Type="Sector" IsForeignKey="true" />
+      <Association Name="Customer_Sale" Member="Customer" ThisKey="CustomerId" OtherKey="Id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
