@@ -1,5 +1,5 @@
 # Ticket-Viewer-SAP
-2016, SAP icin destek talepleri servisi projem
+Task management application where customers create support tickets. The management portal where remote support employees take instant tasks and follow the status of the service and keep it up to date. (since 2016)
 
 # screenshots
 ![dash1](https://user-images.githubusercontent.com/12815851/96658795-22f83200-134e-11eb-8804-f07bba5d18c4.jpg)
