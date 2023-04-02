@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Root">
+
+    <siteMapNode url="" title="Dashboard" >
+      <siteMapNode url="~/RevenueBySector.aspx" title="Çağrıların Detay Dağılımı" />
+      <siteMapNode url="~/RevenueByProduct.aspx" title="Çağrıların Modül Dağılımı" />
+      <siteMapNode url="~/RevenueByChannel.aspx" title="Genel Çağrı Durumu" />
+    </siteMapNode>
+
+    <siteMapNode url="javascript:YeniCagriOlustur();" title="+ Yeni Çağrı Oluştur" />
+
+    <siteMapNode url="" title="Çağrı İstekleri"  >
+
+      <siteMapNode url="~/ProductsOnaylanmisIsteklerim.aspx" title="Açık Çağrılarım"  />
+      <siteMapNode url="~/ProductsOnayBekleyenlerim.aspx" title="Test Onayı Bekleyen Çağrılarım" />
+      <siteMapNode url="~/ProductsKapatilanlarim.aspx" title="Kapanmış Çağrılarım"  />
+    </siteMapNode>
+
+    <siteMapNode url="javascript:Cikis();" title="Çıkış" />
+
+  </siteMapNode>
+</siteMap>
